@@ -1,0 +1,744 @@
+﻿
+.form-from-to .click-right-arrow {
+    padding-right: 2.1rem;
+}
+
+.click-right-arrow:after {
+    content: "";
+    position: absolute;
+    width: .8rem;
+    height: .8rem;
+    top: 50%;
+    border-top: 0.1rem solid #888;
+    border-left: 0.1rem solid #888;
+    margin-top: -0.6rem;
+    -webkit-transform: rotate(135deg);
+    -moz-transform: rotate(135deg);
+    transform: rotate(135deg);
+}
+.term {
+  border-bottom: 1px solid #5A5A5A;
+}
+.page-sending .aging-price {
+    top: auto;
+}
+
+.page-sending .aging-price .aging {
+    border-top: 1px solid #D2D2D2;
+    border-bottom: 1px solid #D2D2D2;
+    background: rgba(255, 255, 255, 0.8);
+}
+
+.page-sending .aging-price .aging.hide {
+    display: none;
+}
+
+.page-sending .aging-price .aging li {
+    padding: 2.4rem 0 .5rem;
+    text-align: center;
+    line-height: 1.2rem;
+    font-size: 1.1rem;
+    color: black;
+}
+
+.page-sending .aging-price .aging li .price {
+    position: absolute;
+    display: none;
+    width: 4rem;
+    height: 4rem;
+    top: -2.5rem;
+    left: 50%;
+    margin-left: -2rem;
+    border: .3rem solid #D2D2D2;
+    -webkit-border-radius: 4rem;
+    -moz-border-radius: 4rem;
+    border-radius: 4rem;
+    background: white;
+    color: black;
+    font-size: 1.5rem;
+    line-height: 1.2rem;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.page-sending .aging-price .aging li .price .yuan {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: scale(1, 1) translate(-50%, -50%);
+    -moz-transform: scale(1, 1) translate(-50%, -50%);
+    transform: scale(1, 1) translate(-50%, -50%);
+    top: 2.4rem;
+}
+
+.page-sending .aging-price .aging li .price .yuan:before {
+    font-size: 1.1rem;
+}
+
+.page-sending .aging-price .aging li .price .yuan:after {
+    content: "起";
+    display: block;
+    font-size: .9rem;
+}
+
+.page-sending .aging-price .aging li.on {
+    color: black;
+}
+
+.page-sending .aging-price .aging li.on .price {
+    display: block;
+}
+
+.page-sending .aging-price .aging li.unavailable {
+    color: #CCC;
+}
+
+.page-sending .aging-price .aging li.unavailable .price {
+    background: #F3F3F3;
+    color: #A7ABAE;
+}
+
+.page-sending .aging-price .aging li.unavailable.on .price {
+    background: #F3F3F3;
+}
+
+.page-sending .aging-price .aging li:before {
+    content: "";
+    position: absolute;
+    width: 1.5rem;
+    height: 1.5rem;
+    top: -0.75rem;
+    left: 50%;
+    -webkit-border-radius: 1.5rem;
+    -moz-border-radius: 1.5rem;
+    border-radius: 1.5rem;
+    margin-left: -0.75rem;
+    background: #D2D2D2;
+}
+
+.page-sending .aging-price .aging li:after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: .3rem;
+    top: -0.15rem;
+    left: 0;
+    background: #D2D2D2;
+}
+
+.page-sending .aging-price .aging li:only-child:after {
+    display: none;
+}
+
+.page-sending .aging-price .aging li:first-child:after {
+    left: 50%;
+}
+
+.page-sending .aging-price .aging li:last-child:after {
+    left: auto;
+    right: 50%;
+}
+
+.page-sending .aging-price .btn-pos-this {
+    bottom: 12rem;
+}
+
+.page-sending .sending-agree {
+    text-align: center;
+    line-height: 4rem;
+    background: white;
+    /*font-size:2.4rem;*/
+}
+
+.page-sending .sending-agree p {
+    display: inline-block;
+    padding-left: 2rem;
+}
+
+.page-sending .sending-agree p:before {
+    content: "";
+    position: absolute;
+    width: 1.2rem;
+    height: 1.2rem;
+    top: 50%;
+    left: 0;
+    margin-top: -.7rem;
+    border: 0.2rem solid #DC1E32;
+}
+
+.page-sending .sending-agree.on p:after {
+    content: "";
+    position: absolute;
+    width: 0.4rem;
+    height: 0.7rem;
+    top: 50%;
+    border-top: 0.15rem solid #DC1E32;
+    border-left: 0.15rem solid #DC1E32;
+    margin-top: -0.3rem;
+    -webkit-transform: rotate(225deg);
+    -moz-transform: rotate(225deg);
+    transform: rotate(225deg);
+    left: .45rem;
+    margin-top: -0.55rem;
+}
+
+.page-sending.page-sending-fc .sending-agree {
+    border-top: 1px solid #D2D2D2;
+    margin: 0 -1rem;
+}
+
+.form-from-to .adress-choice {
+    /*height: 1.6rem;*/
+    /*padding: 1.35rem 0;*/
+    /*padding-right: 1rem;*/
+    padding-top: 0.25rem;
+    padding-left: 3.35rem;
+    font-size: 1.4rem;
+    /*height: 1.6rem;
+    padding: 1.35rem 0;
+    padding-right: 1rem;
+    padding-left: 3.35rem;
+    padding-top: 0.3rem;
+    font-size: 1.4rem;
+    line-height: 1.6rem;*/
+    /*overflow: hidden;*/
+}
+
+.form-from-to .placeholder {
+    color: #A7AAAC;
+}
+
+.form-from-to .adress-choice:after {
+    right: 1rem;
+    margin-top: 0.75rem;
+}
+
+.form-from-to .adress-choice:before {
+    position: absolute;
+    width: 1.6rem;
+    height: 1.6rem;
+    top: 50%;
+    left: 1.2rem;
+    margin-top: -.8rem;
+    text-align: center;
+    line-height: 1.6rem;
+    font-size: 1rem;
+    color: white;
+    -webkit-border-radius: 1.6rem;
+    -moz-border-radius: 1.6rem;
+    border-radius: 1.6rem;
+}
+
+.form-from-to .from:before {
+    content: "寄";
+    background: black;
+}
+
+.form-from-to .to:before {
+    content: "收";
+    background: #DB1E32;
+}
+
+.form-from-to .pickup-date:before {
+    content: "";
+    width: 2.4rem;
+    height: 2.4rem;
+    margin-top: -.2rem;
+    margin-left: -0.4rem;
+    background: url("img/ico-48.png") no-repeat;
+    background-size: 100% 2100%;
+    background-position: 0 45%;
+}
+
+.page-wrapper .form-from-to .ico-pos {
+    position: absolute;
+    top: -1rem;
+    right: 0;
+    font-size: 1.2rem;
+    color: #DC1E32;
+    padding: 0 1.2rem;
+    line-height: 4.4rem;
+}
+
+.page-wrapper .new-form-to .adress-choice .placeholder,
+.page-wrapper .new-form-to .adress-choice .content {
+    border-right: 1px solid #DADADA;
+    margin-right: 5rem;
+}
+
+.form-from-to .adress-choice .left {
+    display: block;
+    width: 28.99%;
+    color: black;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.form-from-to .adress-choice .right {
+    width: 70%;
+    text-align: right;
+    color: #5A5A5A;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.form-from-to .pickup-date .input {
+  border: 0;
+  padding: .5rem 0;
+  float:right;
+  text-align:right;
+  line-height: normal;
+}
+
+/*{
+  top: auto;
+  background: -webkit-linear-gradient(rgba(255, 255, 255, 0), #ffffff, #ffffff);
+  background: -moz-linear-gradient(rgba(255, 255, 255, 0), #ffffff, #ffffff);
+  background: linear-gradient(rgba(255, 255, 255, 0), #ffffff, #ffffff);
+}*/
+
+/******************************************包裹/保价/付款方式/捎话start*********************************************/
+
+
+.priceconfim {
+    width:98%;
+    margin:0 auto;
+}
+.priceconfim > tbody>tr > td{
+    width:50%;
+}
+.priceconfim .content{
+    padding:.5rem;
+    padding-left:3rem;
+    text-overflow:ellipsis; 
+    -o-text-overflow:ellipsis; 
+}
+.priceconfim .content p{
+    color:#A7AAAC;
+    font-size:1.6rem;
+}
+.priceconfim .content:after{
+    content: "";
+    position: absolute;
+    width: .8rem;
+    height: .8rem;
+    top: 50%;
+    border-top: 0.1rem solid #888;
+    border-left: 0.1rem solid #888;
+    margin-top: 0rem;
+    -webkit-transform: rotate(135deg);
+    -moz-transform: rotate(135deg);
+    transform: rotate(135deg);
+    right:1rem;
+}
+
+/**************包裹start***************/
+.priceconfim .goods:before{
+  content: "";
+  width: 2.2rem;
+  height: 2.2rem;
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  top: 0rem;
+  background: url("img/ico-64.png") no-repeat;
+  background-size: 100% 2100%;
+  background-position: 100% 70%;
+}
+/**************包裹end***************/
+
+/**************保价start***************/
+.priceconfim .insurance:before{
+  content: "";
+  width: 2.2rem;
+  height: 2.2rem;
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  top: 0rem;
+  background: url("img/ico-64.png") no-repeat;
+  background-size: 100% 2100%;
+  background-position: 100% 75%;
+}
+/**************保价end***************/
+
+/**************支付方式start***************/
+.priceconfim .payway:before{
+  content: "";
+  width: 2.2rem;
+  height: 2.2rem;
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  top: 0rem;
+  background: url("img/ico-64.png") no-repeat;
+  background-size: 100% 2100%;
+  background-position: 100% 80%;
+}
+/**************支付方式end***************/
+
+/**************捎话start***************/
+.priceconfim .remark:before{
+  content: "";
+  width: 2.2rem;
+  height: 2.2rem;
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  top: 0rem;
+  background: url("img/ico-64.png") no-repeat;
+  background-size: 100% 2100%;
+  background-position: 100% 85%;
+}
+/**************捎话end***************/
+
+/******************************************包裹/保价/付款方式/捎话end*********************************************/
+
+/******************************************包裹start***********************************************/
+
+/******************************************包裹物品start*********************************************/
+/*.package-dialog{
+    background-color:black
+}*/
+.panel-body .goods-class {
+  padding: 0 0 0 1rem;
+  overflow: hidden;
+}
+.panel-body{
+    /*background-color:black;*/
+    /*color:white*/
+}
+.panel-body .goods-class span {
+  display: block;
+  float: left;
+  /*width: 40%;*/
+  margin-right: 3%;
+  margin-bottom: 1rem;
+  padding-left: 2.8rem;
+  line-height: 3.4rem;
+}
+.panel-body .goods-class span:nth-child(3) {
+  margin-right: 0;
+}
+.panel-body .goods-class span.on {
+  background-color: #DB1E32;
+}
+.panel-body .goods-class span:before {
+  content: "";
+  position: absolute;
+  width: 2.8rem;
+  height: 2.8rem;
+  top: 50%;
+  left: .25rem;
+  margin-top: -1.4rem;
+  background: url("img/ico-goods-class-black.png") no-repeat;
+  background-size: 100% 600%;
+  background-position: 0 0;
+}
+.panel-body .goods-class span.file:before {
+  background-position-y: 0;
+}
+.panel-body .goods-class span.casio:before {
+  background-position-y: 17%;
+}
+.panel-body .goods-class span.daily:before {
+  background-position-y: 34%;
+}
+.panel-body .goods-class span.dress:before {
+  background-position-y: 51%;
+}
+.panel-body .goods-class span.food:before {
+  background-position-y: 68%;
+}
+/******************************************包裹物品end*********************************************/
+
+/******************************************包裹规格start*********************************************/
+/*.panel-body .goods-standard {
+  padding: 0 0 0 1rem;
+  overflow: hidden;
+}
+.panel-body .goods-standard span {
+  display: block;
+  float: left;
+  width: 19%;
+  margin-right: 3%;
+  margin-bottom: 1rem;
+  padding-left: 9%;
+  line-height: 3.4rem;
+}
+.panel-body .goods-standard span:nth-child(3) {
+  margin-right: 0;
+}
+.panel-body .goods-standard span.on {
+  background-color: #DB1E32;
+}*/
+.panel-body .goods-standard {
+  margin: 0 1rem;
+  font-size: 1.2rem;
+}
+.panel-body .goods-standard li {
+  text-align: center;
+}
+.panel-body .goods-standard li span.on {
+  background-color: #DB1E32;
+}
+.panel-body .goods-standard li i {
+  display: block;
+  height: 7rem;
+  margin-top: -1rem;
+}
+.panel-body .goods-standard li span {
+  display: block;
+  line-height: 2.4rem;
+}
+.panel-body .goods-standard li .span-log {
+  line-height: 1.2rem;
+  margin-bottom: .8rem;
+  font-size: 1rem;
+  color: #868585;
+}
+.panel-body .goods-standard li i:before {
+  content: "";
+  position: absolute;
+  width: 4.9rem;
+  height: 7rem;
+  left: 50%;
+  bottom: 0;
+  margin-left: -2.45rem;
+  background: url(img/ico-goods-size-black.png) center bottom no-repeat;
+  background-size: 100% 500%;
+  z-index: 1;
+}
+.panel-body .goods-standard li i:after {
+  content: "";
+  position: absolute;
+  width: 4.9rem;
+  left: 50%;
+  bottom: 0;
+  margin-left: -2.45rem;
+  z-index: 0;
+}
+.panel-body .goods-standard li.file-package i:after {
+  background-position-y: 50%;
+}
+.panel-body .goods-standard li.box-small i:after {
+  background-position-y: 60%;
+}
+.panel-body .goods-standard li.box-big i:after {
+  background-position-y: 70%;
+}
+.panel-body .goods-standard li.luggage i:after {
+  background-position-y: 90%;
+}
+.panel-body .goods-standard li.large-packaging i:after {
+  background-position-y: 100%;
+}
+.panel-body .goods-standard li.file-package i:before {
+  background-position-y: 0;
+}
+.panel-body .goods-standard li.box-small i:before {
+  background-position-y: 25%;
+}
+.panel-body .goods-standard li.box-big i:before {
+  background-position-y: 50%;
+}
+.panel-body .goods-standard li.luggage i:before {
+  background-position-y: 75%;
+}
+.panel-body .goods-standard li.large-packaging i:before {
+  background-position-y: 100%;
+}
+.panel-body .goods-standard li.on i:after {
+  background-color: #DB1E32;
+}
+/******************************************包裹规格end*********************************************/
+
+/******************************************包裹其他输入框start*********************************************/
+.input-others {
+  height: 3.4rem;
+  margin: 0 1rem 1.2rem;
+  /*background: #5A5A5A;*/
+  overflow: hidden;
+}
+.input-others.bg-white {
+  /*background: white;*/
+  color: #999;
+}
+.input-others.bg-white:before {
+  background-position: 0 100%;
+}
+.input-others.bg-white .input {
+  /*background: white;*/
+  color: black;
+}
+.input-others.bg-red {
+  background: #DC1E32;
+}
+.input-others.bg-red .input {
+  color: white;
+}
+.input-others.bg-red .total {
+  display: none;
+}
+.input-others .input {
+  position: absolute;
+  display: block;
+  width: 75%;
+  height: 3.2rem;
+  left: 3.6rem;
+  right: 3rem;
+  border: 0;
+  padding: .1rem 0 0;
+  background: none;
+  color: #A7AAAC;
+  line-height: 1.6rem;
+  font-size: 1.3rem;
+}
+.input-others .total {
+  position: absolute;
+  display: block;
+  right: 0;
+  bottom: 0;
+  padding: .5rem;
+  line-height: 1.2rem;
+  font-size: 1.1rem;
+  color: #A7AAAC;
+}
+.input-others .total.red {
+  color: #DC1E32;
+}
+.input-others:before {
+  content: "";
+  position: absolute;
+  width: 2.8rem;
+  height: 2.8rem;
+  top: 50%;
+  left: .3rem;
+  margin-top: -1.4rem;
+  background: url("img/ico-goods-class-black.png") no-repeat;
+  background-size: 100% 700%;
+  background-position: 100% 84%;
+}
+/******************************************包裹其他输入框end*********************************************/
+
+/******************************************包裹end***********************************************/
+
+/******************************************保价start*********************************************/
+.modal .modal-body .insurance {
+  padding: 0 1rem 2rem;
+  overflow: hidden;
+}
+.modal .modal-body .insurance li {
+  width: 49.99%;
+  text-align: center;
+}
+.modal .modal-body .insurance li span {
+  display: block;
+  margin-top: .6rem;
+  line-height: 1.6rem;
+  color: #A7AAAC;
+}
+.modal .modal-body .insurance .input {
+  padding: .8rem 0;
+  /*background: #5A5A5A;*/
+  overflow: hidden;
+}
+.modal .modal-body .insurance .input:before {
+  position: absolute;
+  width: 38%;
+  left: 0;
+  top: 50%;
+  font-size: 1.6rem;
+  line-height: 1.8rem;
+  text-align: right;
+  /*color: white;*/
+  -webkit-transform: translate(0, -50%);
+  -moz-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+  z-index: 1;
+}
+.modal .modal-body .insurance .input input {
+  width: 60%;
+  float: right;
+  border: 0;
+  padding: 0;
+  text-align: left;
+  font-size: 1.5rem;
+  line-height: 1.8rem;
+  /*background: #5A5A5A;
+  color: white;*/
+}
+.modal .modal-body .insurance .input.bg-white {
+  background: white;
+}
+.modal .modal-body .insurance .input.bg-white:before,
+.modal .modal-body .insurance .input.bg-white input {
+  background: white;
+  color: black;
+}
+.modal .modal-body .insurance .price p {
+  display: block;
+  height: 1.8rem;
+  padding: .8rem 0;
+  line-height: 1.8rem;
+  text-align: center;
+  font-size: 1.8rem;
+}
+/******************************************保价end*********************************************/
+
+/******************************************付款方式start*********************************************/
+.modal .modal-body .payway{
+    height:2rem;
+}
+.modal .modal-body .payway .payway-class span {
+  display: block;
+  float: left;
+  width: 30%;
+  margin-right: 3%;
+  margin-bottom: 2rem;
+  padding-left: 9%;
+  line-height: 2.4rem;
+}
+.modal .modal-body .payway .payway-class span:nth-child(3) {
+  margin-right: 0;
+}
+.modal .modal-body .payway .payway-class span.on {
+  background-color: #DB1E32;
+}
+/******************************************付款方式end*********************************************/
+
+/******************************************捎话start*********************************************/
+.modal .modal-body .talk .title {
+  font-size: 1.4rem;
+  line-height: 3.6rem;
+  text-indent: 1rem;
+  background: none;
+}
+.modal .modal-body .tip-three {
+  position: initial;
+  left: 4.4rem;
+  font-size: 1.1rem;
+  color: #DC1E32;
+}
+.talk-one {
+  padding-right: 1rem;
+  overflow: hidden;
+}
+.modal .modal-body .talk .talk-one span {
+  display: block;
+  float: left;
+  margin-left: 1rem;
+  margin-bottom: 1rem;
+  /*padding: 0 1rem;*/
+  line-height: 3.2rem;
+  text-align: center;
+}
+.modal .modal-body .talk .talk-one span.on {
+  background: #DC1E32;
+}
+.modal .modal-body .talk .talk-one span:first-child span {
+  margin-left: 0;
+}
+/******************************************捎话end*********************************************/

@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Events>
+  <Event>
+    <PublishEvent Assembly="Application.MainModule">Application.MainModule.DomainEvents.StorageEvent</PublishEvent>
+    <SubscribedEvents>
+      <SubscribedEvent Assembly="Application.MainModule">Application.MainModule.ProductManagement.IProductManagementServices</SubscribedEvent>
+      <SubscribedEvent Assembly="Application.MainModule">Application.MainModule.ReturnGoodsManagement.IReturnGoodsManagementServices</SubscribedEvent>
+      <SubscribedEvent Assembly="Application.MainModule">Application.MainModule.OutStoreManagement.IOutStoreManagementServices</SubscribedEvent>
+      <SubscribedEvent Assembly="Application.MainModule">Application.MainModule.InStoreManagement.IInStoreManagementServices</SubscribedEvent>
+      <SubscribedEvent Assembly="Application.MainModule">Application.MainModule.BorrowGoodsManagement.IBorrowGoodsManagementServices</SubscribedEvent>
+    </SubscribedEvents>
+  </Event>
+  <Event>
+    <PublishEvent Assembly="Application.MainModule">Application.MainModule.DomainEvents.InStoreEvent</PublishEvent>
+    <SubscribedEvents>
+      <SubscribedEvent Assembly="Application.MainModule">Application.MainModule.ProductManagement.IProductManagementServices</SubscribedEvent>
+    </SubscribedEvents>
+  </Event>
+  <Event>
+    <PublishEvent Assembly="Application.MainModule">Application.MainModule.DomainEvents.BorrowGoodsEvent</PublishEvent>
+    <SubscribedEvents>
+      <SubscribedEvent Assembly="Application.MainModule">Application.MainModule.ProductManagement.IProductManagementServices</SubscribedEvent>
+    </SubscribedEvents>
+  </Event>
+  <Event>
+    <PublishEvent Assembly="Application.MainModule">Application.MainModule.DomainEvents.ReturnGoodsEvent</PublishEvent>
+    <SubscribedEvents>
+      <SubscribedEvent Assembly="Application.MainModule">Application.MainModule.ProductManagement.IProductManagementServices</SubscribedEvent>
+      <SubscribedEvent Assembly="Application.MainModule">Application.MainModule.BorrowGoodsManagement.IBorrowGoodsManagementServices</SubscribedEvent>
+    </SubscribedEvents>
+  </Event>
+</Events>

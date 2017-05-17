@@ -1,0 +1,69 @@
+﻿@model CustomerInfo
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="format-detection" content="telephone=no, email=no">
+    <title>百世汇通快递</title>
+    <script src="~/Content/js/libs/jquery-2.0.3.min.js"></script>
+    <link href="~/Content/bootstrap-3.3.5-dist/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="~/Content/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+    <link href="~/Content/css/default.css" rel="stylesheet" media="screen" charset="utf-8" />
+    <link href="~/Content/css/address.css" rel="stylesheet" media="screen" charset="utf-8" />
+    <link href="~/Content/css/city-picker.css" rel="stylesheet" media="screen" charset="utf-8" />
+    <script src="~/Content/js/libs/city-picker.data.js"></script>
+</head>
+<body class="page-address-book page-address" ng-app="customerapp" ng-controller="customerManageCtrl">
+    <input type="hidden" ng-model="operation" value="@Model.OperationType" id="hdoperationType" />
+    <input type="hidden" ng-model="customerType" value="@Model.CustomerType" id="hdcustomerType" />
+    <input type="hidden" ng-model="uniqueId" value="@Model.UniqueId" id="hduniqueId" />
+    <input type="hidden" ng-model="addr" value="@Model.Csr_Addr" id="hdaddr" />
+    @*<div class="tips-loading fixed-100 hide">
+            <p class="box center-middle">数据加载中</p>
+        </div>*@
+    <ul class="add-form ico-before @Model.CustomerType">
+        <!-- sending receiving -->
+        <li class="user-tel">
+            <input class="user input" id="userName" ng-model="cusName" value="@Model.Csr_Name" maxlength="20" type="text" placeholder="姓名">
+            <input class="tel input" id="tel" ng-model="cusPhone" maxlength="20" value="@Model.Csr_Tel" type="tel" placeholder="手机号或0开头固话">
+            <!--<i id="addrBookBtn" class="ico-pos hide">地址簿</i>-->
+        </li>
+        <li class="select-area cur-sor click-right-arrow">
+            <input id="city-picker3" class="input" ng-model="cusAddr" readonly type="text" value="河南省/漯河市/源汇区" data-toggle="city-picker">
+        </li>
+        <li class="build show-near">
+            <!-- show-near-->
+            <input class="input" id="address" ng-model="cusAddrDetail" maxlength="50" type="text" value="@Model.Csr_AddrDetail" placeholder="详细地址(详细到门牌)">
+            <!-- 请输入小区或大厦名称 -->
+            @*<i id="nearAddressBtn" class="ico-pos">附近地址</i>*@
+        </li>
+        <!-- <li class="companyName">-->
+        @*<input id="companyName" type="hidden" maxlength="20" placeholder="公司名称(选填)">*@
+        <!-- </li> -->
+    </ul>
+    <div class="btn-word-box">
+        <p id="isSaveAddrBtn" class="add-addr on">保存到地址簿</p>
+        <p id="emptyInputBtn" class="all-delete">清空当前信息</p>
+    </div>
+    <!-- 定位带出 -->
+    @*<ul id="locationlistid" class="build-list asso-list hide"></ul>*@
+    <!-- 历史记录联想带出 -->
+    <ul id="addresslistid" class="history-list asso-list hide"></ul>
+    <!--<a href="javascript:void(0)" class="coin-more hide">进入地址簿,查看更多&gt;&gt;</a>-->
+
+    <button id="saveBtn" class="confirm-single-btn fixed-100 gray" type="button">确认</button>
+
+    <script src="~/Scripts/angular.min.js"></script>
+    <script src="~/Content/js/common/city-picker.js"></script>
+    <script src="~/Content/js/common/common.core.js"></script>
+    <script src="~/Content/js/common/units.js"></script>
+    <script src="~/Content/js/common/map.js"></script>
+    <script src="~/Content/js/order/address-book.js"></script>
+</body>
+</html>

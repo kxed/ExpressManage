@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{10A1BBAE-EDAB-4C50-AA8B-D0CE3AB28D6C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Infrastructure.Data.ExpressModule</RootNamespace>
+    <AssemblyName>Infrastructure.Data.ExpressModule</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Model\ExpressManageDB.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ExpressManageDB.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\CustomerRepository.cs" />
+    <Compile Include="Repositories\OrderInfoRepository.cs" />
+    <Compile Include="Repositories\UserInfoRepository.cs" />
+    <Compile Include="UnitOfWork\ExpressModuleUnitOfWork.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ExpressModuleUnitOfWork.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UnitOfWork\ExpressModuleUnitOfWork.Extensions.cs">
+      <DependentUpon>ExpressModuleUnitOfWork.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UnitOfWork\IExpressModuleUnitOfWork.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IExpressModuleUnitOfWork.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\RepositoryManage\RepositoryManage\Domain.Core.Entities\Domain.Core.Entities.csproj">
+      <Project>{ff85d7a9-5bf3-4cce-97c5-0bd9092e20dc}</Project>
+      <Name>Domain.Core.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\RepositoryManage\RepositoryManage\Domain.Core\Domain.Core.csproj">
+      <Project>{74a752fb-a134-4dc3-82d1-e2da3799eb02}</Project>
+      <Name>Domain.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\RepositoryManage\RepositoryManage\Infrastructure.CrossCutting\Infrastructure.CrossCutting.csproj">
+      <Project>{0442e139-ba89-418e-be48-37f39d735d23}</Project>
+      <Name>Infrastructure.CrossCutting</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\RepositoryManage\RepositoryManage\Infrastructure.Data.Core\Infrastructure.Data.Core.csproj">
+      <Project>{8e7b08ec-3427-4fd1-b92d-471fea54b312}</Project>
+      <Name>Infrastructure.Data.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Domain.ExpressModule.Entities\Domain.ExpressModule.Entities.csproj">
+      <Project>{e0ad382a-78ae-40ca-9335-e7bc056e9933}</Project>
+      <Name>Domain.ExpressModule.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Domain.ExpressModule\Domain.ExpressModule.csproj">
+      <Project>{3269def1-4ad9-4975-93c8-e5f418efb96f}</Project>
+      <Name>Domain.ExpressModule</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <EntityDeploy Include="Model\ExpressManageDB.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ExpressManageDB.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Model\ExpressManageDB.edmx.diagram">
+      <DependentUpon>ExpressManageDB.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="UnitOfWork\ExpressModuleUnitOfWork.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ExpressModuleUnitOfWork.cs</LastGenOutput>
+    </Content>
+    <Content Include="UnitOfWork\IExpressModuleUnitOfWork.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>IExpressModuleUnitOfWork.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

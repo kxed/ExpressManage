@@ -1,0 +1,36 @@
+﻿@model LoginUser
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link href="~/Content/bootstrap-3.3.5-dist/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="~/Content/js/common/common.core.js"></script>
+    <script type="text/javascript">
+        function loadPage() {
+
+            var oppid = page.getStorage("oppid");
+            if (oppid == null)
+            {
+                if("@ViewBag.oppid"!="")
+                {
+                    page.setStorage("oppid","@ViewBag.oppid");
+                }
+            }
+            oppid = page.getStorage("oppid");
+            if(oppid!="null" && oppid != null && oppid !="")
+                window.location.href = "/OrderManage/Create?oppid=" + oppid;
+        }
+    </script>
+</head>
+<body>
+    <div>
+        COME ON! COME ON! GO GO
+    </div>
+</body>
+</html>

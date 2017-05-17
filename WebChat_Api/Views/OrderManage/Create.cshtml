@@ -1,0 +1,376 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="format-detection" content="telephone=no, email=no">
+    <title>百世汇通快递</title>
+    <script src="~/Content/js/libs/jquery-2.0.3.min.js"></script>
+    <link href="~/Content/bootstrap-3.3.5-dist/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="~/Content/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+    <link href="~/Content/css/default.css" rel="stylesheet" media="screen" charset="utf-8" />
+    <link href="~/Content/css/order.css" rel="stylesheet" media="screen" charset="utf-8" />
+    <link href="~/Content/css/jquery.datetimepicker.css" rel="stylesheet" />
+    <script src="~/Content/js/common/jquery.datetimepicker.js"></script>
+</head>
+<body class="page-sending sendinged" ng-app="orderapp" ng-controller="orderManageCtrl">
+    <div class="page-wrapper fixed-100">
+        <header class="page-title">
+            <h1 id="titName" class="title">百世汇通快递</h1>
+        </header>
+        <table class="table table-bordered">
+            <tbody>
+                <tr>
+                    <td>
+                        <div class="form-from-to new-form-to">
+                            <div class="from adress-choice">
+                                <div class="placeholder" type="sending">{{sendingaddr}}</div>
+                                <div class="content hide">
+                                    <span class="user left"></span>
+                                    <p class="address right"></p>
+                                </div>
+                                <a class="ico-pos">地址簿</a>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="form-from-to new-form-to">
+                            <div class="to adress-choice">
+                                <div class="placeholder" type="receiving">{{receivingaddr}}</div>
+                                <div class="content hide">
+                                    <span class="user left"></span>
+                                    <p class="address right"></p>
+                                </div>
+                                <a class="ico-pos">地址簿</a>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="form-from-to">
+                            <div class="pickup-date adress-choice click-right-arrow">
+                                <span class="left">上门时间</span>
+                                <div class="right">
+                                    <input class="input" type="text" readonly id="makeTime" np-model="pickuptime" value="{{pickuptime}}" />
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-bordered priceconfim">
+            <tbody>
+                <tr>
+                    <td>
+                        <div class="goods content">
+                            <span>包裹</span>
+                            <p>{{goods}}</p>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="insurance content">
+                            <span>保价</span>
+                            <p>￥{{insurance*0.03}}</p>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="payway content">
+                            <span>付款方式</span>
+                            <p>{{payway}}</p>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="remark content">
+                            <span>捎话</span>
+                            <p>{{remark}}</p>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="aging-price fixed-100">
+        <div class="onclick-no fixed-100 hide"></div>
+        <section class="goods layer fixed-100 hide">
+            <div class="term">
+                <p class="tip-three hide">(最多选择三项)</p>
+                <h3 class="title">物品</h3>
+                <p class="goods-class">
+                    <span class="file">文件</span>
+                    <span class="cannon">数码产品</span>
+                    <span class="daily">日用品</span>
+                    <span class="apparel">服饰</span>
+                    <span class="fooded">食品</span>
+                </p>
+                <div class="input-others">
+                    <input class="input" type="text" maxlength="20" placeholder="请输入其它物品">
+                    <p class="total">0/20</p>
+                </div>
+            </div>
+            <button class="confirm" type="button">确定</button>
+            <a class="close ico-cls" href="javascript:void(0)"></a>
+        </section>
+        <section class="guard layer fixed-100 hide">
+            <div class="term">
+                <h3 class="title">保价</h3>
+                <ul class="insurance">
+                    <li class="value left">
+                        <div class="input yuan">
+                            <input type="tel" placeholder="请输入保值">
+                        </div>
+                        <span>保值（不大于30万）</span>
+                    </li>
+                    <li class="price right">
+                        <p class="yuan">0</p>
+                        <span>保费</span>
+                    </li>
+                </ul>
+            </div>
+            <button class="confirm" type="button">确定</button>
+            <a class="close ico-cls" href="javascript:void(0)"></a>
+        </section>
+        <div class="sending-agree">
+            <p id="selIdo">我同意</p><span id="selterms" class="red">《快件运单契约条款》</span>
+        </div>
+        <button id="submitBtn" class="confirm-single-btn fixed-100-relative gray hide" type="button">保存</button>
+    </div>
+    <!-- 模态框（Modal） -->
+    <!-- 快件运单契约条款 -->
+    <div class="modal fade" id="termsModal" tabindex="-1" role="dialog" aria-labelledby="termsModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" style="z-index:9999;" data-dismiss="modal" aria-hidden="true">
+                        ×
+                    </button>
+                    <h4 class="modal-title" id="termsModalLabel">
+                        《快件运单契约条款》
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <p>1、	特别声明：寄件人寄递价值超过1000元的物品的，应当在寄件时向本公司如实声明。寄件人未声明的，本公司有权按照不超过1000元的物品处理。如寄件人认为本条款关于赔偿的约定不足以补偿其损失，本公司建议对价值超过1000元的物品选择保价服务。</p>
+                    <p>2、	为保证托寄物安全送达，寄件人寄件时应履行以下义务：</p>
+                    <p>（1）	如实申报托寄物内容和价值，并准确、清楚地填写寄件人、收件人的名称、地址、联系电话等资料。</p>
+                    <p>（2）	根据托寄物的性质（尤其是易碎品、液体、气体），提供充分的防破损、防漏、防爆措施，保障托寄物安全派送。</p>
+                    <p>（3）	本公司有权依法对托寄物进行验视，如发现禁止寄递或者限制寄递的物品，有权移交相关部门处理，并配合相关部门追究寄件人违法寄递的法律责任。</p>
+                    <p>3、	关于费用和发票的约定：</p>
+                    <p>（1）	已经收寄的到付快件，如收件人尚未付费，寄件人要求更改为寄件人付费的，应向本公司支付附加服务费。该服务费标准以本公司在官方网站上公布的价格为准。</p>
+                    <p>（2）	寄件人指示在物流中心、保税区等需要支付出/入仓费或其他额外费用的特殊地址收取或派送快件时，寄件人或其指定付款人应当偿还本公司垫付的上述出/入仓费等额外费用，并向本公司支付附加服务费。该服务费标准以本公司在官方网站上公布的价格为准。</p>
+                    <p>（3）	无法派送的托寄物，若寄件人要求退回，则双程费用均由寄件人承担。</p>
+                    <p>（4）	快件费用按照本公司在官方网站上公布或双方书面协议约定的计算标准收取，一方提出快件费用计算错误要求校正的，另一方应当积极配合校正。</p>
+                    <p>（5）	本公司在向月结客户收取月结款时提供发票；有发票需求的非月结客户，请在付款后1个月内持运单原件向本公司索取发票。</p>
+                    <p>4、	关于赔偿的约定：</p>
+                    <p>若因本公司原因造成托寄物丢失、破损、短少、延误的，本公司将免除本次运费。</p>
+                    <p>（1）	未保价快件理赔：寄件人未选择保价的，本公司对月结客户在九倍运费的限额内，对非月结客户在七倍运费的限额内赔偿托寄物的实际损失。</p>
+                    <p>（2）	保价快件理赔：寄件人选择保价且支付保价费用的，托寄物丢失、破损或短少的，本公司按照投保金额和损失的比例赔偿，最高不超过托寄物的实际损失金额。</p>
+                    <p>（3）	托寄物残值由本公司和寄件人双方协商处理；如折归寄件人，本公司在核定赔偿金额时将扣减残值。</p>
+                    <p>5、	对于签单返还服务，若因本公司原因导致签收回单毁损、丢失的，本公司承担的责任仅限于免费提供一次签单返还服务作为赔偿。</p>
+                    <p>6、	本契约条款未作约定的，或本契约条款与国家相关法律法规及标准相冲突的，按照相关规定执行。</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="btnAgree" class="btn btn-danger btn-lg btn-block" data-dismiss="modal">
+                        同意
+                    </button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div>
+    <!-- 快件运单契约条款end-->
+    <!-- 包裹信息选择 -->
+    <div class="modal fade" id="packageModal" tabindex="-1" role="dialog" aria-labelledby="packageModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" style="z-index:9999;" data-dismiss="modal" aria-hidden="true">
+                        ×
+                    </button>
+                    <h4 class="modal-title" id="packageModalLabel">
+                        包裹规格选择
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">物品</div>
+                        <div class="panel-body">
+                            <p class="tip-three hide">(最多选择三项)</p>
+                            <p class="goods-class">
+                                <span class="file">文件</span>
+                                <span class="casio">数码产品</span>
+                                <span class="daily">日用品</span>
+                                <span class="dress">服饰</span>
+                                <span class="food">食品</span>
+                            </p>
+                            <div class="input-others">
+                                <input class="input" type="text" ng-change="ChioceGoods()" ng-model="goodsChioce" maxlength="20" placeholder="请输入其它物品">
+                                <p class="total">{{goodsCount}}</p>
+                            </div>
+                        </div>
+                        <div class="panel-heading">规格</div>
+                        <div class="panel-body">
+                            <ul class="goods-standard d-flex">
+                                <li class="file-package flex-1" data-no="1">
+                                    <i></i>
+                                    <span>文件袋</span>
+                                    <span class="span-log">(1kg)</span>
+                                </li>
+                                <li class="box-small flex-1" data-no="3">
+                                    <i></i>
+                                    <span>小纸箱</span>
+                                    <span class="span-log">(3kg)</span>
+                                </li>
+                                <li class="box-big flex-1" data-no="5">
+                                    <i></i>
+                                    <span>大纸箱</span>
+                                    <span class="span-log">(5kg)</span>
+                                </li>
+                                <li class="luggage flex-1" data-no="10">
+                                    <i></i>
+                                    <span>行李箱</span>
+                                    <span class="span-log">(10kg)</span>
+                                </li>
+                                <li class="large-packaging flex-1" data-no="20">
+                                    <i></i>
+                                    <span>超大包装</span>
+                                    <span class="span-log">(>20kg)</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="btnSure" ng-click="GoodsClick()" class="btn btn-danger btn-lg btn-block" data-dismiss="modal">
+                        确定
+                    </button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div>
+    <!-- 包裹信息选择end -->
+    <!-- 保价选择 -->
+    <div class="modal fade" id="insuranceModal" tabindex="-1" role="dialog" aria-labelledby="insuranceModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" style="z-index:9999;" data-dismiss="modal" aria-hidden="true">
+                        ×
+                    </button>
+                    <h4 class="modal-title" id="insuranceModalLabel">
+                        保价
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <div class="">
+                        <ul class="insurance">
+                            <li class="value left">
+                                <div class="input yuan">
+                                    <input type="tel" placeholder="请输入保值" ng-change="changePrice()" ng-model="insurancePrice">
+                                </div>
+                                <span>如保价大于30万，请以小哥上门确认的保价金额为准</span>
+                            </li>
+                            <li class="price right">
+                                <p class="yuan">{{baoPrice}}</p>
+                                <span>保费</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="btnInsurance" ng-click="InputInsurance()" class="btn btn-danger btn-lg btn-block" data-dismiss="modal">
+                        确定
+                    </button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div>
+    <!-- 保价选择end -->
+    <!-- 付款方式 -->
+    <div class="modal fade" id="paywayModal" tabindex="-1" role="dialog" aria-labelledby="paywayModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" style="z-index:9999;" data-dismiss="modal" aria-hidden="true">
+                        ×
+                    </button>
+                    <h4 class="modal-title" id="paywayModalLabel">
+                        付款方式
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <div class="payway">
+                        <p class="payway-class">
+                            <span>寄付现结</span>
+                            <span>到付</span>
+                            <span>寄付月结</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <input type="hidden" ng-model="payway" id="paywayContent" value="{{payway}}"/>
+                    <button type="button" id="btnPayway" ng-click="ChoicePayway()" class="btn btn-danger btn-lg btn-block" data-dismiss="modal">
+                        确定
+                    </button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div>
+    <!-- 付款方式 -->
+    <!-- 捎话 -->
+    <div class="modal fade" id="talkModal" tabindex="-1" role="dialog" aria-labelledby="talkModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" style="z-index:9999;" data-dismiss="modal" aria-hidden="true">
+                        ×
+                    </button>
+                    <h4 class="modal-title" id="talkModalLabel">
+                        捎话
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <div class="talk">
+                        <p class="tip-three hide">(最多选择三项)</p>
+                        <p class="talk-one d-flex">
+                            <span class="flex-1">带包文件封</span>
+                            <span class="flex-1">带包装袋</span>
+                            <span class="flex-1">带纸箱</span>
+                        </p>
+                        <p class="talk-one d-flex">
+                            <span class="flex-1">上门前请先联系</span>
+                            <span class="flex-1">要爬楼</span>
+                        </p>
+                        <div class="input-others">
+                            <input class="input" type="text" ng-change="ChangeTalk()" ng-model="talkContent" maxlength="20" placeholder="给小哥捎句话">
+                            <p class="total">{{talkCount}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <input type="hidden" id="talkOneContent" ng-model="talkOneContent" />
+                    <button type="button" ng-click="TalkClick()" class="btn btn-danger btn-lg btn-block" data-dismiss="modal">
+                        确定
+                    </button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div>
+    <!-- 捎话 -->
+    <!-- /.modal -->
+
+    <script src="~/Scripts/angular.min.js"></script>
+    <script src="~/Content/js/common/common.core.js"></script>
+    <script src="~/Content/js/common/angular.datetime.js"></script>
+    @*<script src="~/Content/js/order/sending.common.js"></script>*@
+    <script src="~/Content/js/order/order-create.js"></script>
+</body>
+</html>
